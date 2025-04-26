@@ -1,0 +1,109 @@
+body{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+.navbar{
+    width: 50%;
+    margin-left: 50px;
+    margin-right: auto;
+    font-family: 'Jersey 10', sans-serif;
+    color: #384B70;
+}
+.navigation{
+    display: flex;
+    justify-content:end;
+    margin-left: auto;
+}
+
+.close{
+
+    text-decoration: none;
+  color: black;
+  background-color: #B8001F;
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  box-sizing: border-box; 
+  text-align: center;
+  justify-content: end;
+  left: auto;
+  align-content: center;
+  border-radius: 100%;
+}
+.Header{
+    margin-left: auto;
+    margin-right: auto ;
+    text-align: center;
+    font-size: 5vh;
+    color: black ;
+    font-family: "Jersey 10", sans-serif;
+    letter-spacing: 5px;
+    margin-bottom: 0rem;
+    padding: 0rem;
+    width: 100%;
+}
+.desc-header{
+    font-family: 'Doto', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #384B70;
+    font-size: 1rem;
+    width: 50%;
+
+}
+.table{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;;
+    padding: 20px;
+    margin-top: 10vh;
+    border: #384B70 solid 2px;
+    border-radius: 5px;
+}
+.tableHeader th{
+    border-bottom: 0.5px solid #B8001F;
+    font-family: 'Jersey 10', sans-serif;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+
+.tableRow td{
+    border-bottom: 1.5px solid #E4DCCF;
+    padding: 10px;
+    color: #384B70;
+    font-family: 'Doto', sans-serif;
+    font-weight: 1000;
+    font-size: 1rem;
+}
+.alert-alert-success{
+    position: absolute;
+    background-color: #B8001F;
+    color: white;
+    padding: 10px;
+
+}
+#delete-button{
+    background-color: none;
+    color: #B8001F;
+    border: none;
+    background: none;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+.bi-bi-trash{
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
