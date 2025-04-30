@@ -1,7 +1,47 @@
 body{
     margin-left: auto;
     margin-right: auto;
-    padding: 20px;
+    padding: 5px;
+    position: relative;
+    
+
+}
+::selection {
+    color: white;
+    background: #B8001F;
+  }
+
+.action-btn{
+    display: flex;
+    margin-top: 40px;
+}
+.update-btn{
+    position: absolute;
+    left: 70%;
+    border: #384B70 solid 2px;
+    border-radius: 50px;
+    background-color: yellowgreen;
+    text-align: center;
+    width: 35vh;
+    padding: 10px;
+}
+.update-btn::selection{
+    color: white;
+    background: black;
+}
+.update-btn:hover{
+    background-color: white;
+    color: yellowgreen;
+    border-radius: 50px;
+    text-align: center;
+    width: 35vh;
+    padding: 10px;
+    cursor: pointer;
+}
+.update-btn{
+    color: white;
+    font-family: Doto, sans-serif;
+    font-weight:1000;
 }
 .navbar{
     width: 50%;
@@ -10,31 +50,41 @@ body{
     font-family: 'Jersey 10', sans-serif;
     color: #384B70;
 }
-.navigation{
-    display: flex;
-    justify-content:end;
-    margin-left: auto;
-}
 
-.close{
 
-    text-decoration: none;
-  color: black;
-  background-color: #B8001F;
-  height: 50px;
-  width: 50px;
-  display: inline-block;
-  box-sizing: border-box; 
-  text-align: center;
-  justify-content: end;
-  left: auto;
-  align-content: center;
-  border-radius: 100%;
+
+
+.close-btn{
+    position: absolute;
+    left: 85%;
+    width: 10vh;
+    height: 10vh;
+    background: black;
+    border: 2px solid black;
+    color: white;
+    border-radius: 50%;
+    font-family: 'Doto', sans-serif;
+    font-weight: 1000;
+    font-size: 5vh;
 }
+.close-btn:hover{
+    width: 10vh;
+    height: 10vh;
+    background-color: #B8001F;
+    border-radius: 50%;
+    font-family: 'Doto', sans-serif;
+    font-weight: 1000;
+    font-size: 5vh;
+    cursor: pointer;
+}
+    
 .Header{
+    position: relative;
     margin-left: auto;
     margin-right: auto ;
+    margin-top: 50px;
     text-align: center;
+    align-content: center;
     font-size: 5vh;
     color: black ;
     font-family: "Jersey 10", sans-serif;
@@ -42,6 +92,7 @@ body{
     margin-bottom: 0rem;
     padding: 0rem;
     width: 100%;
+    height: 200px;
 }
 .desc-header{
     font-family: 'Doto', sans-serif;
@@ -54,6 +105,9 @@ body{
     font-size: 1rem;
     width: 50%;
 
+}
+.tStudents{
+    margin-top: 50px;
 }
 .table{
     width: 80%;
@@ -78,10 +132,27 @@ body{
 .tableRow td{
     border-bottom: 1.5px solid #E4DCCF;
     padding: 10px;
-    color: #384B70;
     font-family: 'Doto', sans-serif;
     font-weight: 1000;
     font-size: 1rem;
+}
+
+
+
+.tableRow{
+    background-color: white;
+    color: #384B70;
+}
+.tableRow:hover{
+    background-color: #B8001F;
+    color: white;
+    cursor: pointer;
+}
+.tableRow:hover #delete-button,
+.tableRow:hover #edit-btn {
+    background-color: white; /* or specify default button color */
+    color: #B8001F; /* or specify default text color */
+    cursor: pointer; /* prevents pointer cursor */
 }
 .alert-alert-success{
     position: absolute;

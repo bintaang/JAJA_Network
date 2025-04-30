@@ -22,7 +22,7 @@ class TSmkFactory extends Factory
             'Jurusan' => $this->faker->randomElement(['RPL', 'TKJ', 'DKV', 'TKTL', 'TAV', 'TOI']),
             'Gedung' => $this->faker->randomElement(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O']),
             'Kelas' => $this->faker->randomElement(['X', 'XI', 'XII']),
-            'WaliKelas' => $this->faker->name(),
+            'WaliKelas' => $this->faker->randomElement(['Hana', 'Ilham','Gerald']),
         ];
     }
 }

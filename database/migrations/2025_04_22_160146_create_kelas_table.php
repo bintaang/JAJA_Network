@@ -16,6 +16,15 @@ return new class extends Migration
             $table->timestamps();
             $table->enum('Kelas', ['X', 'XI', 'XII']);
         });
+
+        Schema::table('t_smks', function(Blueprint $table){
+            $table->enum('WaliKelas', ['Hana', 'Ilham', 'Gerald'])->change();
+        });
+        Schema::create('WaliKelas', function(Blueprint $table){
+            $table->id();
+            $table->timestamps();
+            $table->enum('WaliKelas', ['Hana', 'Ilham', 'Gerald']);
+        });
     }
 
     /**

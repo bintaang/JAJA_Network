@@ -6,6 +6,7 @@ use App\Models\Gedung;
 use App\Models\Jurusan;
 use App\Models\Kelas;
 use App\Models\TSmk;
+use App\Models\walikelas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,8 +26,11 @@ class TSMKController extends Controller
         $gedung = Gedung::orderBy('Gedung', 'asc')->get();
         $jurusan = Jurusan::orderBy('Jurusan', 'asc')->get();
         $kelas = Kelas::orderBy('Kelas', 'asc')->get();
+        $walikelas = walikelas::orderBy('walikelas', 'asc')->get();
         return view('form', [
-            'jurusan' => $jurusan, 'gedung' => $gedung, 'kelas' => $kelas
+            'jurusan' => $jurusan, 'gedung' => $gedung, 'kelas' => $kelas, 'walikelas'=>$walikelas
+
+
         ]);
     }
     
@@ -35,7 +39,7 @@ class TSMKController extends Controller
             'NISN' => 'required',
             'NamaSiswa' => 'required|string|max:50',
             'kelas' => 'required',
-            'WaliKelas' => 'required',
+            'walikelas' => 'required',
             'jurusan' => 'required',
             'gedung' => 'required'
         ]);
@@ -59,7 +63,7 @@ class TSMKController extends Controller
             'NISN' => 'required',
             'NamaSiswa' => 'required|string|max:50',
             'kelas' => 'required',
-            'WaliKelas' => 'required',
+            'walikelas' => 'required',
             'jurusan' => 'required',
             'gedung' => 'required'
         ]);
@@ -80,7 +84,8 @@ class TSMKController extends Controller
         $gedung = Gedung::orderBy('Gedung', 'asc')->get();
         $jurusan = Jurusan::orderBy('Jurusan', 'asc')->get();
         $kelas = Kelas::orderBy('Kelas', 'asc')->get();
-        return view('form', ['siswa'=>$siswa, 'gedung' => $gedung, 'jurusan' => $jurusan, 'kelas' => $kelas]);
+        $walikelas = walikelas::orderBy('WaliKelas', 'asc')->get();
+        return view('form', ['siswa'=>$siswa, 'gedung' => $gedung, 'jurusan' => $jurusan, 'kelas' => $kelas, 'walikelas'=>$walikelas]);
     }
 
     function destroy(Request $request, $id)
@@ -91,6 +96,10 @@ class TSMKController extends Controller
         } else {
             return redirect('/siswa')->with('error', 'Data Gagal Dihapus');
         }
+    }
+
+    function home(){
+        return view('homepage');
     }
 
    

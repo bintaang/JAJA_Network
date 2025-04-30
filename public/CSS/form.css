@@ -1,0 +1,25 @@
+body{
+ padding: 10px;
+ font-family: Jersey 10, sans-serif;
+}
+
+.h{
+    font-family: Doto, sans-serif;
+}
+
+.form{
+    margin: 30px;
+}
+
+label, input, select{
+    margin: 20px;
+    padding: 5px;
+}
+
+#name-std{
+    display: flex;
+}
+
+#major-std{
+    display: flex;
+}
