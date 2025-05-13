@@ -23,3 +23,13 @@ label, input, select{
 #major-std{
     display: flex;
 }
+.alert-danger{
+    color: red;
+    padding: 25px;
+}
+.container-inpt{
+    position: fixed;
+    z-index: 2;
+    background-color: rgb(245, 159, 159) ;
+    left:35%;
+}

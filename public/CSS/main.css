@@ -57,24 +57,25 @@ body{
 .close-btn{
     position: absolute;
     left: 85%;
-    width: 10vh;
-    height: 10vh;
-    background: black;
+    width: 6vh;
+    height: 6vh;
+    background: #B8001F;
     border: 2px solid black;
     color: white;
     border-radius: 50%;
     font-family: 'Doto', sans-serif;
     font-weight: 1000;
-    font-size: 5vh;
+    font-size: 2vh;
 }
 .close-btn:hover{
-    width: 10vh;
-    height: 10vh;
-    background-color: #B8001F;
+    width: 6vh;
+    height: 6vh;
+    background-color: white;
+    color: #B8001F;
     border-radius: 50%;
     font-family: 'Doto', sans-serif;
     font-weight: 1000;
-    font-size: 5vh;
+    font-size: 2vh;
     cursor: pointer;
 }
     

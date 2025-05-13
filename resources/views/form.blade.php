@@ -27,25 +27,29 @@
 <body>
 
 <!-- Error handling for validation -->
+<div class="container-inpt">
 @if($errors->any())
-    <div class="alert alert-danger">
+    <div class="alert-danger">
+        <strong>Alert!!</strong>
+        <br>
         <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+            @foreach($errors->all() as $error)
+                  <li>{{ $error }}</li>
             @endforeach
         </ul>
     </div>
 @endif
+</div>
 
 <!-- Success & Error Message Flash -->
 @if(session('success'))
-    <div class="alert alert-success">
+    <div class="alert-success">
         {{ session('success') }}
     </div>
 @endif
 
 @if(session('error'))
-    <div class="alert alert-danger">
+    <div class="alert-danger">
         {{ session('error') }}
     </div>
 @endif
@@ -66,9 +70,11 @@
     <div id="name-std">
     <label for="name">Students Name:</label>
     <input type="text" name="NamaSiswa" id="nStudent" placeholder="Enter Student Name" value="{{ old('NamaSiswa', @$siswa->NamaSiswa) }}"> <br>
-    <label for="NISN">Student ID:</label>
+
+    <!-- <label for="NISN">Student ID:</label>
     <input type="text" name="NISN" id="nStudentID" placeholder="Enter Student ID" value="{{ old('NISN', @$siswa->NISN) }}"> <br>
-    </div>
+    </div> -->
+    
     
     
     <div id="major-std">
@@ -76,47 +82,67 @@
     <select name="jurusan" id="jurusan">
         <option value="">Choose Your Major</option>
         @foreach ($jurusan as $data)
-        <option value="{{ $data->id }}" {{ (old("jurusan", @$siswa->Jurusan) == $data->id) ? 'selected' : '' }}>{{$data->Jurusan}}</option>
+        <option value="{{ $data->Jurusan }}" 
+            @selected(old('jurusan') == $data->Jurusan || @$siswa->Jurusan == $data->Jurusan)>
+            {{ $data->Jurusan }}
+        </option>
         @endforeach
     </select> <br> 
 
     <label for="kelas">Class:</label>
-    <select name="kelas" id="kelas">
+    <select name="Kelas">
         <option value="">Choose Your Class</option>
         @foreach ($kelas as $data)
-            <option value="{{ $data->id }}" {{ old('kelas') == $data->id ? 'selected' : '' }}>
-                {{ $data->Kelas }}
-            </option>
+        <option value="{{ $data->Kelas }}" 
+            @selected(old('Kelas') == $data->Kelas || @$siswa->Kelas == $data->Kelas)>
+            {{ $data->Kelas }}
+        </option>
         @endforeach
+        
+        
     </select> <br>
+    
+
     </div>
+   
     
     <div>
     <label for="gedung">Class Building:</label>
     <select name="gedung" id="gedung">
         <option value="">Choose Your Building</option>
         @foreach ($gedung as $data)
-            <option value="{{ $data->id }}" {{ old('gedung') == $data->id ? 'selected' : '' }}>
-                {{ $data->Gedung }}
-            </option>
+        <option value="{{ $data->Gedung }}" 
+            @selected(old('gedung') == $data->Gedung || @$siswa->Gedung == $data->Gedung)>
+            {{ $data->Gedung }}
+        </option>
         @endforeach
     </select> <br>
     </div>
+   
     
     <div>
     <label for="WaliKelas">Home Teacher:</label>
+        
         <select name="walikelas" id="WK">
+        <option value="">Choose Your Home Teacher</option>
             @foreach($walikelas as $data)
-            <option value="{{$data->id}}">{{$data->WaliKelas}}</option>
+            <option value="{{ $data->WaliKelas }}" 
+            @selected(old('walikelas') == $data->WaliKelas || @$siswa->WaliKelas == $data->WaliKelas)>
+            {{ $data->WaliKelas }}
+        </option>
             @endforeach
         </select>
     </div>
+ 
+    
     
     <div>
     <input type="submit" value="Submit" class="btn btn-primary"><br>
     </div>
     
 </form>
+
+
 
 </body>
 </html>

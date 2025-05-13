@@ -23,30 +23,36 @@ class TSMKController extends Controller
 
     function form( Request $request)
     {
+        
         $gedung = Gedung::orderBy('Gedung', 'asc')->get();
         $jurusan = Jurusan::orderBy('Jurusan', 'asc')->get();
         $kelas = Kelas::orderBy('Kelas', 'asc')->get();
         $walikelas = walikelas::orderBy('walikelas', 'asc')->get();
         return view('form', [
-            'jurusan' => $jurusan, 'gedung' => $gedung, 'kelas' => $kelas, 'walikelas'=>$walikelas
-
-
-        ]);
+            'jurusan' => $jurusan, 'gedung' => $gedung, 'kelas' => $kelas, 'walikelas'=>$walikelas]);
     }
     
     function store(Request $request){
         $request->validate([
-            'NISN' => 'required',
+            // 'NISN' => 'required',
             'NamaSiswa' => 'required|string|max:50',
-            'kelas' => 'required',
+            'Kelas' => 'required',
             'walikelas' => 'required',
             'jurusan' => 'required',
-            'gedung' => 'required'
+            'gedung' => 'required'  
         ]);
-       $input = $request->all();
-        unset($input['_token']);
-        $status =TSmk::insert($input);
+            $tahunMasuk = date('Y');
+            $randomDigits = mt_rand(1000, 9999);
 
+            
+            do {
+                $nisn = $tahunMasuk . $randomDigits;
+            } while (TSmk::where('NISN', $nisn)->exists());
+
+        $input = $request->except('_token');
+        $input['NISN'] = $nisn;
+
+        $status = TSmk::insert($input); 
         if ($status) {
             return redirect('/siswa')->with('success', 'Data Berhasil Ditambahkan');
         } else {
@@ -59,10 +65,11 @@ class TSMKController extends Controller
 
     function update(Request $request, $id)
     {   
+        
         $request->validate([
             'NISN' => 'required',
             'NamaSiswa' => 'required|string|max:50',
-            'kelas' => 'required',
+            'Kelas' => 'required',
             'walikelas' => 'required',
             'jurusan' => 'required',
             'gedung' => 'required'
@@ -77,6 +84,7 @@ class TSMKController extends Controller
         } else {
             return redirect('/siswa/edit')->with('error', 'Data Gagal Diubah');
         }
+        
     }
 
     function edit(Request $request, $id){
